@@ -20,7 +20,7 @@ sudo apt-get update
 ### SOFTWARE ###
 
 #apache
-sudo apt-get -y install apache2 libapache2-mod-php
+sudo apt-get -y install apache2 libapache2-mod-php7.0 
 
 #php 7.0
 ./php/7.0.sh
