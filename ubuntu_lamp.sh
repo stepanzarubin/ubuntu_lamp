@@ -7,8 +7,8 @@ sudo apt-get -y install curl
 sudo apt-get -y install build-essential checkinstall software-properties-common
 
 #mariadb-server repository
-sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://lon1.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu xenial main'
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://ftp.cc.uoc.gr/mirrors/mariadb/repo/10.0/ubuntu trusty main'
 
 #php repository
 sudo apt-get -y install language-pack-en-base
@@ -58,18 +58,16 @@ sudo a2enmod userdir
 sudo usermod -a -G `whoami` www-data
 ##end
 
-sudo service apache2 start
-#start on boot
-sudo update-rc.d -f apache2 remove
-sudo update-rc.d apache2 defaults
-
 #config
 sudo cp ./apache/apache2.conf /etc/apache2/
 sudo cp ./php/php7.0.ini /etc/php/7.0/apache2/php.ini
 sudo cp ./mariadb/my.cnf /etc/mysql/
-sudo service apache2 restart
+sudo service apache2 start
 sudo service mysql restart
 
+#start on boot
+#sudo update-rc.d -f apache2 remove
+#sudo update-rc.d apache2 defaults
 
 #cleanup
 sudo apt-get -y autoremove
