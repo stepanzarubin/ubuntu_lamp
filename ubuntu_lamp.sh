@@ -3,6 +3,9 @@
 #curl
 sudo apt-get -y install curl
 
+#dos2unix (useful when recieving files from Windows)
+sudo apt-get -y install dos2unix
+
 #for compiling/installing things
 sudo apt-get -y install build-essential checkinstall software-properties-common
 
